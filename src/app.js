@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const joi = require('joi');
 const bcrypt = require('bcryptjs');
-const 
+const jwt = require('jsonwebtoken');
 
 const router = require('./routes');
 
