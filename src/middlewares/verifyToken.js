@@ -4,7 +4,6 @@ const verifyToken = (req, res, next) => {
   const { token } = req.cookies;
   jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
     if (err) { res.status(300).redirect('/signup'); } else {
-    console.log(decoded)
       req.token = decoded;
       next();
     }
