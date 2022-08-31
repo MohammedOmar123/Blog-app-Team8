@@ -32,13 +32,13 @@ const login = (req, res) => {
             if (err) {
               res.status(500).sendFile(join(__dirname, '..', '..', 'public', '500.html'));
             } else {
-              res.cookie('user', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'post.html' });
+              res.cookie('user', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'posts.html' });
             }
           });
         } else {
           res.json({ result: 'Username or Password are not correct ' });
         }
-      });
+      }).catch(() => res.status(500).sendFile(join(__dirname, '..', '..', 'public', '500.html')));
     } else {
       res.json({ result: 'Username or Password are not correct ' });
     }

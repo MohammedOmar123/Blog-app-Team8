@@ -41,7 +41,7 @@ submitBtn.addEventListener('click', (e) => {
             window.location.href = url.path;
           }
         });
-      });
+      }).then((error) => console.log(error));
   } else {
     errMsg.style.display = 'block';
   }
