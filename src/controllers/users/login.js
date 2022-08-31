@@ -8,6 +8,18 @@ const { loginQuery } = require('../../database/queries');
 
 const login = (req, res) => {
   const { email, password } = req.body;
+  const validationInputs = () => {
+    const schema = Joi.object({
+      email: Joi.string().email().required,
+      password: Joi.string().required(),
+    });
+    const result = schema.validate({ email, password });
+    return result;
+  };
+
+  if (!(validationInputs(email, password))) {
+    res.json({ result: 'Invalid Inputs !' });
+  }
   loginQuery(email).then((data) => {
     if (data.rowCount === 1) {
         console.log(data);
