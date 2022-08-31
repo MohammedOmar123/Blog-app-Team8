@@ -57,25 +57,29 @@ const deletePost = (id) => fetch(`/userPosts/delete-post/${id}`, {
     'Content-Type': 'application/json',
   },
 });
-
-fetch('/userPosts').then((res) => res.json()).then((res) => {
-  if (res.massage) {
-    window.location.href = res.massage;
-  } else {
-    res.rows.forEach((element) => {
-      const conCopy = handleDom(element);
-      const deleteBtn = document.createElement('button');
-      deleteBtn.textContent = 'Delete';
-      deleteBtn.classList.add('btn_primary');
-      conCopy.appendChild(deleteBtn);
-      deleteBtn.addEventListener('click', () => {
-        const post = conCopy.parentElement;
-        postsContainer.removeChild(post);
-        deletePost(element.id);
+const fetchUserPosts = () => {
+  fetch('/userPosts').then((res) => res.json()).then((res) => {
+    if (res.massage) {
+      window.location.href = res.massage;
+    } else {
+      console.log(res.rows);
+      postsContainer.textContent = '';
+      res.rows.forEach((element) => {
+        const conCopy = handleDom(element);
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('btn_primary');
+        conCopy.appendChild(deleteBtn);
+        deleteBtn.addEventListener('click', () => {
+          const post = conCopy.parentElement;
+          postsContainer.removeChild(post);
+          deletePost(element.id);
+        });
       });
-    });
-  }
-});
+    }
+  });
+};
+fetchUserPosts();
 homeBtn.addEventListener('click', () => {
   window.location.href = 'home.html';
 });
@@ -91,5 +95,5 @@ addProfileImage.addEventListener('click', (e) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   };
-  fetch('/userImage', header).then((result) => console.log(result));
+  fetch('/userImage', header).then(fetchUserPosts());
 });

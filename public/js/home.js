@@ -29,7 +29,7 @@ closeIcon.addEventListener('click', removeClasses);
 
 addPost.addEventListener('click', (e) => {
   e.preventDefault();
-
+  removeClasses()
   const header = {
     method: 'POST',
     body: JSON.stringify({
@@ -42,9 +42,7 @@ addPost.addEventListener('click', (e) => {
     },
   };
   fetch('/post', header)
-    .then((data) => {
-      data.json();
-    });
+    .then((data) => data.json()).then(() => fetchPosts());
 });
 profileBtn.addEventListener('click', () => {
   window.location.href = 'profile.html';

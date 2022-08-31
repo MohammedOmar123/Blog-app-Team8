@@ -1,7 +1,11 @@
 const postsContainer = document.querySelector('.posts');
-
-fetch('/posts').then((data) => data.text()).then((res) => {
-  JSON.parse(res).reverse().forEach((element) => {
-    handleDom(element);
-  });
-}).catch((err) => console.log('error', err));
+const fetchPosts = () => {
+  fetch('/posts').then((data) => data.text()).then((res) => {
+    postsContainer.textContent = '';
+    JSON.parse(res).reverse().forEach((element) => {
+      console.log(element);
+      handleDom(element);
+    });
+  }).catch((err) => console.log('error', err));
+};
+fetchPosts();
