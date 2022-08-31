@@ -1,3 +1,9 @@
+const postsContainer = document.querySelector('.posts');// this used in dom file
+const titleInput = document.querySelector('input.title');
+const contentTextarea = document.querySelector('textarea.content');
+const imageInput = document.querySelector('input.image');
+const addPost = document.querySelector('button.add-post');
+const profileBtn = document.querySelector('.profileBtn');
 const addBlogBtn = document.querySelector('.add-btn-blog');
 const addCategoryBtn = document.querySelector('.add-btn-category');
 const postsSection = document.querySelector('.posts');
@@ -6,7 +12,7 @@ const addCategoryPopUp = document.querySelector('.add-category-pop-up');
 const closeIcon = document.querySelector('.close-add-icon');
 const closeCategoryIcon = document.querySelector('.close-category-icon');
 const addProfileImage = document.querySelector('.add-profile-image');
-
+const userImage = document.querySelector('.userImage');
 
 // Toggle classes
 const toggleClasses = () => {
@@ -39,13 +45,6 @@ postsSection.addEventListener('click', removeClasses);
 closeIcon.addEventListener('click', removeClasses);
 closeCategoryIcon.addEventListener('click', removeCategoryClasses);
 const homeBtn = document.querySelector('.HomeBtn');
-
-const postsContainer = document.querySelector('.posts');// this used in dom file
-const titleInput = document.querySelector('input.title');
-const contentTextarea = document.querySelector('textarea.content');
-const imageInput = document.querySelector('input.image');
-const addPost = document.querySelector('button.add-post');
-const profileBtn = document.querySelector('.profileBtn');
 // Events
 addBlogBtn.addEventListener('click', toggleClasses);
 postsSection.addEventListener('click', removeClasses);
@@ -69,11 +68,11 @@ fetch('/userPosts').then((res) => res.json()).then((res) => {
       deleteBtn.textContent = 'Delete';
       deleteBtn.classList.add('btn_primary');
       conCopy.appendChild(deleteBtn);
-      deleteBtn.addEventListener('click', ()=>{
-      const post = conCopy.parentElement;
-      postsContainer.removeChild(post);
-      deletePost(element.id);
-      })
+      deleteBtn.addEventListener('click', () => {
+        const post = conCopy.parentElement;
+        postsContainer.removeChild(post);
+        deletePost(element.id);
+      });
     });
   }
 });
@@ -82,5 +81,15 @@ homeBtn.addEventListener('click', () => {
 });
 
 addProfileImage.addEventListener('click', (e) => {
-e.preventDefault();
+  e.preventDefault();
+  const header = {
+    method: 'POST',
+    body: JSON.stringify({
+      image: userImage.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  };
+  fetch('/userImage', header).then((result) => console.log(result));
 });
