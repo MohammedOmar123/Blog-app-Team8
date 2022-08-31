@@ -33,9 +33,15 @@ submitBtn.addEventListener('click', (e) => {
     };
     fetch('/login', header)
       .then((data) => {
-        data.json().then((url) => { window.location.href = url.path; });
+        data.json().then((url) => {
+          if (url.path === undefined) {
+            errMsg.style.display = 'block';
+            errMsg.textContent = url.result;
+          } else {
+            window.location.href = url.path;
+          }
+        });
       });
-    // .then((data) => );2
   } else {
     errMsg.style.display = 'block';
   }
