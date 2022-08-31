@@ -20,7 +20,7 @@ const postUser = (req, res) => {
           res.json({ msg: 'This email is already exists' });
         } else {
           addUserQuery(req.body).then((row) => row.id).then((userId) => {
-            jwt.sign({ id: userId }, process.env.SECRET_KEY, { algorithm: 'HS256' }, (err, token) => {
+            jwt.sign({ id: userId }, process.env.secret, { algorithm: 'HS256' }, (err, token) => {
               res
                 .cookie('token', token, {
                   httpOnly: true,
