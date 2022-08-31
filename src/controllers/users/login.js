@@ -1,4 +1,5 @@
 const { join } = require('path');
+const Joi = require('joi');
 
 const jwt = require('jsonwebtoken');
 require('env2')('.env');
@@ -22,7 +23,6 @@ const login = (req, res) => {
   }
   loginQuery(email).then((data) => {
     if (data.rowCount === 1) {
-        console.log(data);
       bcrypt.compare(password, data.rows[0].password).then((result) => {
         if (result) {
           jwt.sign({ email: data.email, id: data.id }, process.env.secret, {
@@ -35,8 +35,12 @@ const login = (req, res) => {
               res.cookie('user', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'post.html' });
             }
           });
+        } else {
+          res.json({ result: 'Username or Password are not correct ' });
         }
       });
+    } else {
+      res.json({ result: 'Username or Password are not correct ' });
     }
   });
 };
