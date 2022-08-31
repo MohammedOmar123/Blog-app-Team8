@@ -6,7 +6,7 @@ const titleInput = document.querySelector('input.title');
 const contentTextarea = document.querySelector('textarea.content');
 const imageInput = document.querySelector('input.image');
 const addPost = document.querySelector('button.add-post');
-
+const profileBtn = document.querySelector('profileBtn');
 // Toggle classes
 const toggleClasses = () => {
   postsSection.classList.toggle('blur');

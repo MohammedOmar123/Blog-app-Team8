@@ -16,5 +16,4 @@ app.use(cookieParser());
 app.use(compression());
 app.use(express.static('public'));
 app.use(router);
-
 module.exports = app;

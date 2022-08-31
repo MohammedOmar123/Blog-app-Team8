@@ -1,19 +1,18 @@
 const router = require('express').Router();
 
-const { postUser, getPosts } = require('../controllers');
-const verifyToken = require('../middlewares/verifyToken');
+const signup = require('./signup');
 const login = require('./login');
 const addPost = require('./addPost');
 const getUserPosts = require('./getUserPosts');
-// router.get('/home', verifyToken, (req, res) => {
-//     res.send(req.token);
-//   });
+const getPosts = require('./getPosts');
 
 router.use(addPost);
 
-router.post('/signup', postUser);
-router.get('/posts', getPosts);
+router.use(signup);
+
+router.use(getPosts);
 
 router.use(login);
 router.use(getUserPosts);
+
 module.exports = router;
