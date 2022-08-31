@@ -24,8 +24,10 @@ const removeClasses = () => {
 
 // Events
 addBlogBtn.addEventListener('click', toggleClasses);
-
 postsSection.addEventListener('click', removeClasses);
+closeIcon.addEventListener('click', removeClasses);
+postsSection.addEventListener('click', removeClasses);
+
 fetch('/userPosts').then((res) => res.json()).then((res) => {
   if (res.massage) {
     window.location.href = res.massage;
