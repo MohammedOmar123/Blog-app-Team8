@@ -19,21 +19,17 @@ const postUser = (req, res) => {
         if (users.rows.length) {
           res.json({ msg: 'This email is already exists' });
         } else {
-          // console.log(process.env.SECRET_KEY);
-          // const { email, username, password } = req.body;
-          // bcrypt.hash(password, 10, (err, hash) => {
-          //   if (err) { console.log(error); } else { addUserQuery(req.body); }
-          // });
-          addUserQuery(req.body);
-          jwt.sign({ id: 5 }, process.env.SECRET_KEY, { algorithm: 'HS256' }, (err, token) => {
-            res
-              .cookie('token', token, {
-                httpOnly: true,
-                secure: true,
-              }).redirect('/home');
+          addUserQuery(req.body).then((row) => row.id).then((userId) => {
+            jwt.sign({ id: userId }, process.env.SECRET_KEY, { algorithm: 'HS256' }, (err, token) => {
+              res
+                .cookie('token', token, {
+                  httpOnly: true,
+                  secure: true,
+                }).json({ path: 'posts.html ' });
+            });
           });
         }
       });
-    }).catch((error) => res.status(500).json(error.details));
+    }).catch((error) => res.status(500).json(error));
 };
 module.exports = postUser;
