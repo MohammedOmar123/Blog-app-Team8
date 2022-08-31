@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook light</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="./css/home.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            Facebook Light
+        </h1>
+        <div class="btns">
+            <button class="add-btn add-btn-blog">add blog</button>
+            <button class="add-btn add-btn-category">user profile  </button>
+        </div>
+    </header>
+    <div id="container" class="pop-up-container add-pop-up">
+        <i class="fa-solid fa-x close-add-icon"></i>
+        <h2>Blog Post</h2>
+        <p>Feel free to type anything</p>
+        <form>
+            <input type="text" placeholder="Type post title" required>
+            <textarea name="" id="" cols="30" rows="5" placeholder="Type post content" required></textarea>
+            <input type="text" placeholder="Add username image" required>
+            <div class="labels">
+            </div>
+            <button>Add</button>
+        </form>
+    </div>
+     <section class="posts">
+        <div class="blog_post">
+            <div class="img_pod">
+                <img src="https://pbs.twimg.com/profile_images/890901007387025408/oztASP4n.jpg" alt="random image">
+            </div>
+            <div class="container_copy">
+                <p class="username">mostafa.4omar</p>
+                <h3>12 January 2019</h3>
+                <h1>CSS Positioning</h1>
+                <p>The position property specifies the type of positioning method used for an element (static, relative,
+                    absolute, fixed, or sticky).</p>
+                    <img id="post-img" src="https://www.elegantthemes.com/blog/wp-content/uploads/2021/01/000-Basic-CSS.png" alt="">
+                    <button class="btn_primary" href='#'>delete</button>
+                </div>
+
+        </div>
+    </section>
+    <script src="./js/home.js"></script>
+</body>
+</html>
