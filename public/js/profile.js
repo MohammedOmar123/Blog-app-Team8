@@ -45,7 +45,11 @@ fetch('/userPosts').then((res) => res.json()).then((res) => {
       deleteBtn.textContent = 'Delete';
       deleteBtn.classList.add('btn_primary');
       conCopy.appendChild(deleteBtn);
-      deleteBtn.addEventListener('click', ()=>{deletePost(element.id)})
+      deleteBtn.addEventListener('click', ()=>{
+      const post = conCopy.parentElement;
+      postsContainer.removeChild(post);
+      deletePost(element.id);
+      })
     });
   }
 });
