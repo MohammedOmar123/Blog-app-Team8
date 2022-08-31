@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog Project</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    hello
+    
+    <div class="main-container">
+        <section class="left-side">
+            <div>
+                <h1 class="head-p">Sign In To<br>Spread Your Ideas & Knowledge</h1>
+                <div class="hint-p">if you don't have an account <br>you can <a href="./signUp.html">Register here!</a></div>
+            </div>
+            <div class="img-container"><img src="./img/undraw_thought_process_re_om58.svg"></div>
+        </section>
+        <section class="right-side">
+            <header class="header-right">
+                <div class="sign-in">Sign in</div>
+                <button class="register"><a href="./signUp.html">Register</a></button>
+            </header>
+            <form class="sign-in-form">
+                <input id="email" type="text" name="username" placeholder="Type Email">
+                <input id="password"  type="password" name="password" placeholder="Type Password">
+                <button id="submit">Sign In</button>
+            </form>
+            <p id="invalid-msg">Invalid Email or password</p>
+
+
+        
+        </section>
+
+    </div>
+    <script src="./index.js"></script>
 </body>
 </html>

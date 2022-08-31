@@ -139,7 +139,8 @@ body {
 input[type=text],
 input[type=email],
 input[type=password],
-input[type=submit] {
+input[type=submit],
+#submit {
     border: none;
     padding: 15px 10px;
     background-color: var(--input-back-color);
@@ -147,13 +148,25 @@ input[type=submit] {
     border-radius: 10px;
 
 }
-input[type=submit]{
+input[type=submit]
+,#submit{
     background-color: var(--first-color);
 }
-input:focus {
+input:focus 
+,#submit{
     outline:none;
 }
 
+#invalid-msg{
+    /* border: 2px red solid; */
+    width: max-content;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 10px;
+    /* background-color:var(--input-back-color) ; */
+    color: rgba(255, 0, 0, 0.829);
+    display: none;
+}
 
 /* ------------------sign up page styles ----------------- */
 
