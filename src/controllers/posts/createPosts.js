@@ -1,12 +1,7 @@
-
-const { date } = require('joi');
 const { createPostQuery } = require('../../database/queries');
 
-const createPost = (req, res) => {
-  createPostQuery(req.body, req.token.id).then((date) => {
-    console.log('********************', date);
-
-  });
+const createPost = (req,) => {
+  createPostQuery(req.body, req.token.id);
 };
 
 module.exports = createPost;
