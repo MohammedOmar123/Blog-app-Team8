@@ -5,6 +5,7 @@ const login = require('./login');
 const addPost = require('./addPost');
 const getUserPosts = require('./getUserPosts');
 const getPosts = require('./getPosts');
+const { serverError, userError } = require('../errors');
 
 router.use(addPost);
 
@@ -14,5 +15,8 @@ router.use(getPosts);
 
 router.use(login);
 router.use(getUserPosts);
+
+router.use(userError);
+router.use(serverError);
 
 module.exports = router;
