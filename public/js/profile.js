@@ -33,7 +33,11 @@ fetch('/userPosts').then((res) => res.json()).then((res) => {
     window.location.href = res.massage;
   } else {
     res.rows.forEach((element) => {
-      handleDom(element);
+    const conCopy =   handleDom(element);
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.classList.add('btn_primary');
+      conCopy.appendChild(deleteBtn);
     });
   }
 });

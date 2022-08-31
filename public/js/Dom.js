@@ -39,4 +39,5 @@ const handleDom = (element) => {
   conCopy.appendChild(postImg);
   post.appendChild(conCopy);
   postsContainer.appendChild(post);
+  return conCopy;
 };
