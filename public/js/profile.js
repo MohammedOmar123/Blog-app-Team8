@@ -28,6 +28,13 @@ postsSection.addEventListener('click', removeClasses);
 closeIcon.addEventListener('click', removeClasses);
 postsSection.addEventListener('click', removeClasses);
 
+const deletePost = (id) => fetch(`/userPosts/delete-post/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
 fetch('/userPosts').then((res) => res.json()).then((res) => {
   if (res.massage) {
     window.location.href = res.massage;
@@ -38,6 +45,11 @@ fetch('/userPosts').then((res) => res.json()).then((res) => {
       deleteBtn.textContent = 'Delete';
       deleteBtn.classList.add('btn_primary');
       conCopy.appendChild(deleteBtn);
+      deleteBtn.addEventListener('click', ()=>{
+      const post = conCopy.parentElement;
+      postsContainer.removeChild(post);
+      deletePost(element.id);
+      })
     });
   }
 });
