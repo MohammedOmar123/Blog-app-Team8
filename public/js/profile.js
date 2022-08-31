@@ -1,4 +1,4 @@
-const postsContainer = document.querySelector('.posts');
+const postsContainer = document.querySelector('.posts');// this used in dom file
 const homeBtn = document.querySelector('.HomeBtn');
 const addBlogBtn = document.querySelector('.add-btn-blog');
 const postsSection = document.querySelector('.posts');
