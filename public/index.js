@@ -13,17 +13,38 @@ const validateInput = (pattern, inputValue, errorMassage) => {
   return false;
 };
 
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
-
-
-
-
+  if (
+    validateInput(emailPattern, emailInput.value, 'Invalid Email')
+      && validateInput(passwordPattern, passwordInput.value, 'Invalid Password')
+  ) {
+    errMsg.style.display = 'none';
+    const header = {
+      method: 'POST',
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    };
+    fetch('/login', header)
+      .then((data) => {
+        data.json().then((url) => { window.location.href = url.path; });
+      });
+    // .then((data) => );2
+  } else {
+    errMsg.style.display = 'block';
+  }
+});
 
 emailInput.addEventListener('input', () => {
-    errMsg.style.display = 'none';
-  });
-  
-  passwordInput.addEventListener('input', () => {
-    errMsg.style.display = 'none';
-  });
-  
+  errMsg.style.display = 'none';
+});
+
+passwordInput.addEventListener('input', () => {
+  errMsg.style.display = 'none';
+});
