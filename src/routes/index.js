@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { postUser } = require('../controllers');
+const { postUser, getPosts } = require('../controllers');
 
 const verifyToken = require('../middlewares/verifyToken');
 
@@ -10,6 +10,7 @@ const login = require('./login');
 //   res.send(req.token);
 // });
 router.post('/signup', postUser);
+router.get('/posts', getPosts);
 
 router.use(login);
 

@@ -9,6 +9,7 @@ const { loginQuery } = require('../../database/queries');
 
 const login = (req, res) => {
   const { email, password } = req.body;
+  console.log(email);
   const validationInputs = () => {
     const schema = Joi.object({
       email: Joi.string().email().required,
@@ -32,7 +33,7 @@ const login = (req, res) => {
             if (err) {
               res.status(500).sendFile(join(__dirname, '..', '..', 'public', '500.html'));
             } else {
-              res.cookie('user', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'posts.html' });
+              res.cookie('token', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'home.html' });
             }
           });
         } else {
