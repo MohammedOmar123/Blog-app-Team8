@@ -1,5 +1,7 @@
+const { getUserPostsQuery } = require('../../database/queries');
+
 const getUserPosts = (req, res) => {
-  console.log(req.token);
-  res.send('he');
+  const { id } = req.token;
+  getUserPostsQuery(id).then((result) => res.json(result));
 };
 module.exports = getUserPosts;
