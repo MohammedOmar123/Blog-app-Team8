@@ -45,9 +45,6 @@ addPost.addEventListener('click', (e) => {
     .then((data) => {
       data.json();
     });
-  // .then((url) => {
-  //   console.log('test');
-  // });
 });
 profileBtn.addEventListener('click', () => {
   window.location.href = 'profile.html';
