@@ -1,4 +1,4 @@
-const getUserPosts = require('../../database/queries');
+const getUserPostsQuery = require('../../database/queries');
 
 const getPosts = (req, res) => {
   console.log(req.token);

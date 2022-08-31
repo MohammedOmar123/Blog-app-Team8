@@ -26,7 +26,7 @@ const login = (req, res) => {
     if (data.rowCount === 1) {
       bcrypt.compare(password, data.rows[0].password).then((result) => {
         if (result) {
-          jwt.sign({ email: data.rows[0].email, id: data.rows[0].id }, process.env.SECRET_KEY, {
+          jwt.sign({ email: data.rows[0].email, id: data.rows[0].id }, process.env.secret, {
             algorithm: 'HS256',
             expiresIn: '1h',
           }, (err, Signature) => {
