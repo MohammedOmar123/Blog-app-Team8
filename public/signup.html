@@ -18,7 +18,7 @@
     <div class="main-container">
         <section class="left-side">
             <div>
-                <h1 class="head-p">Welcome ,<br>Create Your Account. Happy journey🙂.</h1>
+                <h1 class="head-p">Welcome ,<br>Create Your Account and<br>Happy journey✨.</h1>
                 <div class="hint-p">if you have an account <br>you can <a href="./index.html">Sign In here!</a></div>
             </div>
             <div class="img-container"><img src="./img/undraw_thought_process_re_om58.svg"></div>
@@ -29,16 +29,28 @@
                 <p>Already have an account? <a href="./index.html">Sign in</a></p>
             </header>
             <h3 class="let-p">Let's get you <span>started</span></h3>
-            <form class="sign-in-form sign-up-form" action="/signup" method="post">
-                <input type="email" name="email"placeholder="Email">
-                <input type="text" name="username"placeholder="Username">
-                <input type="password" name="password"placeholder="Password">
-                <input type="password" name="password2"placeholder="Password">
-                <input type="submit" value="Sign In">
-            </form>
+            <section class="sign-in-form sign-up-form">
+                <div class = 'requirment'>
+                <input type="email" name="email"placeholder="Email" class  = 'email'>
+                <small class = "err-msg">Errorrrrrr</small>
+                </div>
+                <div class = 'requirment'>
+                <input type="text" name="username"placeholder="Username" class = 'username'>
+                <small class = "err-msg">Errorrrrrr</small>
+                </div>
+                <div class = 'requirment'>
+                <input type="password" name="password"placeholder="Password" class = 'password'>
+                <small class = "err-msg">Errorrrrrr</small>
+                </div>
+                <div class = 'requirment'>
+                <input type="password" name="password2"placeholder="Password" class = 'password2'>
+                <small class = "err-msg">Errorrrrrr</small>
+                </div>
+                <input type="submit" value="Sign In" class = 'signUpBtn'>
+            </section>
 
         </section>
-        <script src="./js/index.js"></script>
+        <script src="./js/validation.js"></script>
 </body>
 
 </html>
