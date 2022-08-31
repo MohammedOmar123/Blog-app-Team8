@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const verifyToken = (req, res, next) => {
-  console.log('token');
   const { token } = req.cookies;
   jwt.verify(token, process.env.secret, (err, decoded) => {
     if (err) { res.status(300).json({ massage: 'signup.html' }); } else {
