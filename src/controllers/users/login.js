@@ -26,12 +26,12 @@ const login = (req, res) => {
     if (data.rowCount === 1) {
       bcrypt.compare(password, data.rows[0].password).then((result) => {
         if (result) {
-          jwt.sign({ email: data.rows[0].email, id: data.rows[0].id }, process.env.SECRET_KEY, {
+          jwt.sign({ email: data.rows[0].email, id: data.rows[0].id }, process.env.secret, {
             algorithm: 'HS256',
             expiresIn: '1h',
           }, (err, Signature) => {
             if (err) {
-              res.status(500).sendFile(join(__dirname, '..', '..', 'public', '500.html'));
+              res.status(500).sendFile(join(__dirname, '..', '..', '..','public', '500.html'));
             } else {
               res.cookie('token', Signature, { httpOnly: true, secure: true, maxAge: 3600000 }).json({ path: 'home.html' });
             }
