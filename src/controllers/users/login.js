@@ -4,12 +4,13 @@ const jwt = require('jsonwebtoken');
 require('env2')('.env');
 const bcrypt = require('bcryptjs');
 
-const loginQuery = require('../../database/queries');
+const { loginQuery } = require('../../database/queries');
 
 const login = (req, res) => {
   const { email, password } = req.body;
   loginQuery(email).then((data) => {
     if (data.rowCount === 1) {
+        console.log(data);
       bcrypt.compare(password, data.rows[0].password).then((result) => {
         if (result) {
           jwt.sign({ email: data.email, id: data.id }, process.env.secret, {
