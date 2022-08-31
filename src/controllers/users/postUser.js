@@ -25,7 +25,7 @@ const postUser = (req, res) => {
                 .cookie('token', token, {
                   httpOnly: true,
                   secure: true,
-                }).json({ path: 'posts.html ' });
+                }).json({ path: 'home.html ' });
             });
           });
         }

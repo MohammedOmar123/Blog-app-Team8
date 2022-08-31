@@ -1,1 +1,7 @@
-fetch('/profile/1').then((res) => res.json()).then((data) => console.log(data));
+fetch('/userPosts').then((res) => res.json()).then((res) => {
+  if (res.massage) {
+    window.location.href = res.massage;
+  } else {
+   console.log(res.rows);
+  }
+});
