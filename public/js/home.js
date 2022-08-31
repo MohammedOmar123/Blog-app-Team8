@@ -1,18 +1,22 @@
 const addBlogBtn = document.querySelector('.add-btn-blog');
 const postsSection = document.querySelector('.posts');
-const addPopUp = document.querySelector('.add-pop-up');
+const addPopup = document.querySelector('.add-pop-up');
 const closeIcon = document.querySelector('.close-add-icon');
+const titleInput = document.querySelector('input.title');
+const contentTextarea = document.querySelector('textarea.content');
+const imageInput = document.querySelector('input.image');
+const addPost = document.querySelector('button.add-post');
 
 // Toggle classes
 const toggleClasses = () => {
   postsSection.classList.toggle('blur');
-  addPopUp.classList.toggle('show-container');
+  addPopup.classList.toggle('show-container');
 };
 
 const removeClasses = () => {
   postsSection.classList.remove('blur');
-  if (addPopUp.classList.contains('show-container')) {
-    addPopUp.classList.remove('show-container');
+  if (addPopup.classList.contains('show-container')) {
+    addPopup.classList.remove('show-container');
   }
 };
 
@@ -22,3 +26,26 @@ addBlogBtn.addEventListener('click', toggleClasses);
 postsSection.addEventListener('click', removeClasses);
 
 closeIcon.addEventListener('click', removeClasses);
+
+addPost.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const header = {
+    method: 'POST',
+    body: JSON.stringify({
+      title: titleInput.value,
+      content: contentTextarea.value,
+      image: imageInput.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  };
+  fetch('/post', header)
+    .then((data) => {
+      data.json();
+    });
+  // .then((url) => {
+  //   console.log('test');
+  // });
+});
