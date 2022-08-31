@@ -1,3 +1,6 @@
+const getPostsQuery = require('./getPosts');
 const createPostQuery = require('./createPost');
 
-module.exports = { createPostQuery };
+module.exports = { getPostsQuery, createPostQuery };
+
+

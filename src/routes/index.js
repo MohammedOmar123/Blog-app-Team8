@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { postUser } = require('../controllers');
+const { postUser, getPosts } = require('../controllers');
 
 const verifyToken = require('../middlewares/verifyToken');
 
@@ -16,6 +16,7 @@ const addPost = require('./addPost');
   router.use(addPost);
 
 router.post('/signup', postUser);
+router.get('/posts', getPosts);
 
 router.use(login);
 

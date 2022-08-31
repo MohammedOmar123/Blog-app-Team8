@@ -9,6 +9,7 @@ const { loginQuery } = require('../../database/queries');
 
 const login = (req, res) => {
   const { email, password } = req.body;
+  console.log(email);
   const validationInputs = () => {
     const schema = Joi.object({
       email: Joi.string().email().required,
