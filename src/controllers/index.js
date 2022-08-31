@@ -1,3 +1,3 @@
-const { postUser } = require('./users');
+const { postUser, login } = require('./users');
 
-module.exports = { postUser };
+module.exports = { postUser, login };
