@@ -9,7 +9,7 @@ let connectionString = '';
 let ssl = false;
 
 switch (NODE_ENV) {
-  case 'prod':
+  case 'production':
     connectionString = DATABASE_URL;
     ssl = {
       rejectUnauthorized: false,
