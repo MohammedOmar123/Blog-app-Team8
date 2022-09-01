@@ -5,7 +5,8 @@ const userError = (req, res) => {
 };
 
 const serverError = (err, req, res, next) => {
-  res.status(500).sendFile(path.join(__dirname, '..', '..', 'public', '500.html'));
+  console.log(err)
+  res.status(500).json({msg: err});
 };
 
 module.exports = {
