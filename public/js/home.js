@@ -7,6 +7,17 @@ const contentTextarea = document.querySelector('textarea.content');
 const imageInput = document.querySelector('input.image');
 const addPost = document.querySelector('button.add-post');
 const profileBtn = document.querySelector('.profileBtn');
+const log = document.querySelector('.log');
+
+fetch('/home').then((res) => res.json()).then((res) => {
+  console.log(res);
+  if (res.logged) {
+    log.textContent = 'Logout';
+  } else {
+    log.textContent = 'Login';
+  }
+}).catch(console.error);
+
 // Toggle classes
 const toggleClasses = () => {
   postsSection.classList.toggle('blur');
@@ -29,7 +40,7 @@ closeIcon.addEventListener('click', removeClasses);
 
 addPost.addEventListener('click', (e) => {
   e.preventDefault();
-  removeClasses()
+  removeClasses();
   const header = {
     method: 'POST',
     body: JSON.stringify({
@@ -46,4 +57,18 @@ addPost.addEventListener('click', (e) => {
 });
 profileBtn.addEventListener('click', () => {
   window.location.href = 'profile.html';
+});
+log.addEventListener('click', () => {
+  if (log.textContent === 'Logout') {
+    fetch('/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json()).then((res) => {
+      window.location.href = res.path;
+    }).catch(console.error);
+  } else {
+    window.location.href = 'index.html';
+  }
 });
