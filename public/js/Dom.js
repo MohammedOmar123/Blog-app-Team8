@@ -3,6 +3,12 @@ const handleDom = (element) => {
   const post = document.createElement('div');
   post.className = 'blog_post';
 
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  const data = document.createElement('div');
+  data.className = 'data';
+
   const userImgCon = document.createElement('div');
   userImgCon.className = 'img_pod';
 
@@ -26,13 +32,19 @@ const handleDom = (element) => {
 
   const postTitle = document.createElement('h1');
   postTitle.textContent = element.title;
+  postTitle.className = 'postTitle'
 
   const postText = document.createElement('p');
   postText.textContent = element.content;
+  postText.className = 'postText'
+
+
   userImgCon.appendChild(userImg);
-  post.appendChild(userImgCon);
-  conCopy.appendChild(userName);
-  conCopy.appendChild(postTime);
+  row.appendChild(userImgCon);
+  data.appendChild(userName);
+  data.appendChild(postTime);
+  row.appendChild(data);
+  conCopy.appendChild(row);
   conCopy.appendChild(postTitle);
   conCopy.appendChild(postText);
   if (element.image) {
