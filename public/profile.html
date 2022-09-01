@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/home.css">
-    <title>My Profile</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <title>Wall4All</title>
+  </head>
+  <body>
     <header>
-        <h1 class="logo">
-           <a href="home.html" style="text-decoration: none;
-           color:white; ">Wall4All</a> 
-        </h1>
-        <div class="btns">
-            <button class="add-btn add-btn-blog">add blog</button>
-          <button class="add-btn add-btn-category">MY Picture</button></a>
-          <button class="add-btn HomeBtn profileBtn add-btn-category">Home</button></a>  
-  
-        </div>
+      <h1 class="logo">
+        <a href="home.html" style="text-decoration: none; color: white"
+          >Wall4All</a
+        >
+      </h1>
+      <div class="btns">
+        <button class="add-btn add-btn-blog">add blog</button>
+        <button class="add-btn add-btn-category">My Picture</button>
+        <button class="add-btn HomeBtn profileBtn add-btn-category">
+          Home
+        </button>
+        <button class="add-btn logout">Logout</button>
+      </div>
     </header>
     <div id="container" class="pop-up-container add-pop-up">
-        <i class="fa-solid fa-x close-add-icon"></i>
-        <h2>Blog Post</h2>
-        <p>Feel free to type anything</p>
-        <form>
-            <input class="title" type="text" placeholder="Type post title" required>
-            <textarea class="content" cols="30" rows="5" placeholder="Type post content" required></textarea>
-            <input  class="image" type="text" placeholder="Add image" >
-            <div class="labels">
-            </div>
-            <button class="add-post">Add</button>
-        </form>
+      <i class="fa-solid fa-x close-add-icon"></i>
+      <h2>What do you have?</h2>
+      <p>Feel free to type anything</p>
+      <form>
+        <input
+          class="title"
+          type="text"
+          placeholder="Type post title"
+          required
+        />
+        <textarea
+          class="content"
+          cols="30"
+          rows="5"
+          placeholder="Type post content"
+          required
+        ></textarea>
+        <input class="image" type="text" placeholder="Add image" />
+        <div class="labels"></div>
+        <button class="add-post">Post</button>
+      </form>
     </div>
-    <div  class="pop-up-category-container add-category-pop-up">
-        <i class="fa-solid fa-x close-category-icon"></i>
-        <h2>Your Picture </h2>
-        <p>Feel free to type anything</p>
-        <form>
-            <input class="userImage" type="text" placeholder="Add Your Photo" required>
-            <button class="add-profile-image">Add</button>
-        </form>
+    <div class="pop-up-category-container add-category-pop-up">
+      <i class="fa-solid fa-x close-category-icon"></i>
+      <h2>Your Picture</h2>
+      <p>Feel free to type anything</p>
+      <form>
+        <input
+          class="userImage"
+          type="text"
+          placeholder="Add Your Photo"
+          required
+        />
+        <button class="add-profile-image">Add</button>
+      </form>
     </div>
-    <section class="posts">  </section>
+    <section class="posts"></section>
     <script src="js/posts.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/Dom.js"></script>
-</body>
+  </body>
 </html>
