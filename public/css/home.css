@@ -349,3 +349,103 @@ ul.ks-cboxtags li input[type="checkbox"] {
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid #e9a1ff;
 }
+.pop-up-container, .pop-up-category-container{
+	background-image: linear-gradient(to top, rgba(205, 156, 242, 0.40) 0%, rgba(246, 255, 255, 0.71) 100%);
+	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	text-align: center;
+	border-radius: 5px;
+	margin: 3em auto;
+	background: rgba(255, 255, 255, 0.95);
+	height: fit-content;
+  width: 480px;
+	padding: 1rem;
+	
+	position: absolute;
+	/* bottom: 0; */
+	/* right: 0; */
+	left: -100%;
+	top: 0;	
+  z-index: 999;
+  transition: all 1s;
+}
+
+.show-container{
+	bottom: 0;
+	right: 0;
+	left: 0%;
+  transform: rotate(360deg);
+}
+/* .show-category-form{
+  bottom: 0;
+	right: 0;
+	left: 0%;
+  transform: rotate(360deg);
+} */
+.close-add-icon , .close-category-icon{
+  position: absolute;
+  left: 20px ;
+  top: 20px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.pop-up-container h2 ,.pop-up-category-container h2{
+	background: url(https://static.pexels.com/photos/5782/nature-flowers-vintage-plant.jpg);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+/* 	background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%); */
+	font-family: 'Playfair Display', serif;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:cover;
+	letter-spacing: 2px;
+	font-size: 3.5em;
+	margin: 0;
+
+	
+	
+}
+.pop-up-container p , .pop-up-category-container p{
+	font-family: 'Farsan', cursive;
+	margin: 3px 0 1.5em 0;
+	font-size: 1.3em;
+	color: #7d7d7d;
+}
+
+.pop-up-container input , .pop-up-container textarea ,.pop-up-category-container input{
+/* 	background: rgba(255, 13, 254, 0.90); */
+	width: 75%;
+	display: block;
+  margin: 10px auto;
+	text-align: center;
+	border-radius: 7px;
+	background: #eee;
+	padding: 1em 2em;
+	outline: none;
+	border: none;
+	color: #222;
+	transition: 0.3s linear;
+}
+::placeholder{color: #999;}
+.pop-up-container input:focus ,.pop-up-category-container input:focus {background: rgba(0, 0, 333, 0.10);}
+
+.pop-up-category-container input[type="color"]{
+  width: 20%;
+  height: 50px;
+}
+.pop-up-container button ,.pop-up-category-container button{
+	background-image: linear-gradient(to left, rgba(255, 146, 202, 0.75) 0%, rgba(145, 149, 251, 0.86) 100%);
+	box-shadow: 0 9px 25px -5px #df91fb;
+	font-family: 'Abel', sans-serif;
+	padding: 0.5em 2.9rem;
+	margin: 1rem 0 1rem 0;
+	border-radius: 7px;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 1.6rem;
+	outline: none;
+	border: none;
+	transition: 0.3s linear;
+
+}
+.pop-up-container button:hover, .pop-up-category-container button:hover{transform: translatey(2px);}
+.pop-up-container button:active, .pop-up-category-container button:active{transform: translatey(5px);}

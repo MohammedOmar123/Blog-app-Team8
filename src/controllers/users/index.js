@@ -1,5 +1,5 @@
 const postUser = require('./postUser');
 const login = require('./login');
 const logout = require('./logout');
-
-module.exports = { postUser, login, logout };
+const addUserImage = require('./addUserImage');
+module.exports = { postUser, login, addUserImageو logout };

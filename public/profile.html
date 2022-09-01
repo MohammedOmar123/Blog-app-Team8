@@ -9,15 +9,17 @@
   </head>
   <body>
     <header>
-      <h1 class="logo">Wall4All</h1>
-      <div class="btns">
-        <button class="add-btn add-btn-blog">add blog</button>
-        <button class="add-btn HomeBtn profileBtn add-btn-category">
-          Home
-        </button>
-        <button class="add-btn logout">Logout</button>
-      </div>
+        <h1 class="logo">
+            Facebook Light
+        </h1>
+        <div class="btns">
+            <button class="add-btn add-btn-blog">add blog</button>
+          <button class="add-btn add-btn-category">Your Picture</button></a>
+          <button class="add-btn HomeBtn profileBtn add-btn-category">Profile </button></a>  
+          <button class="add-btn logout">Logout</button>
+        </div>
     </header>
+    
     <div id="container" class="pop-up-container add-pop-up">
       <i class="fa-solid fa-x close-add-icon"></i>
       <h2>Blog Post</h2>
@@ -42,7 +44,17 @@
       </form>
     </div>
     <section class="posts"></section>
-    <script src="js/Dom.js"></script>
+    <div  class="pop-up-category-container add-category-pop-up">
+        <i class="fa-solid fa-x close-category-icon"></i>
+        <h2>Your Picture </h2>
+        <p>Feel free to type anything</p>
+        <form>
+            <input class="userImage" type="text" placeholder="Add Your Photo" required>
+            <button class="add-profile-image">Add</button>
+        </form>
+    </div>
+    <section class="posts">  </section>
+        <script src="js/Dom.js"></script>
     <script src="js/profile.js"></script>
   </body>
 </html>

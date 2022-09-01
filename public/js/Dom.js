@@ -6,7 +6,11 @@ const handleDom = (element) => {
   userImgCon.className = 'img_pod';
 
   const userImg = document.createElement('img');
-  userImg.src = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
+  if (element.userimage) {
+    userImg.src = element.userimage;
+  } else {
+    userImg.src = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
+  }
   userImg.alt = 'user image';
 
   const conCopy = document.createElement('div');
@@ -24,11 +28,13 @@ const handleDom = (element) => {
 
   const postText = document.createElement('p');
   postText.textContent = element.content;
-
-  const postImg = document.createElement('img');
-  postImg.id = 'post-img';
-  postImg.src = element.image;
-  postImg.alt = 'post image';
+  if (element.image) {
+    const postImg = document.createElement('img');
+    postImg.id = 'post-img';
+    postImg.src = element.image;
+    postImg.alt = 'post image';
+    conCopy.appendChild(postImg);
+  }
 
   userImgCon.appendChild(userImg);
   post.appendChild(userImgCon);
@@ -36,7 +42,6 @@ const handleDom = (element) => {
   conCopy.appendChild(postTime);
   conCopy.appendChild(postTitle);
   conCopy.appendChild(postText);
-  conCopy.appendChild(postImg);
   post.appendChild(conCopy);
   postsContainer.appendChild(post);
   return conCopy;
