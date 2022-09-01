@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook light</title>
     <!-- css link -->
-    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/home.css">
     <!-- Font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
 
-  <body>
+<body>
     <header>
-      <h1 class="logo">Wall4All</h1>
-      <div class="btns">
-        <button class="add-btn add-btn-blog">add blog</button>
-        <button class="add-btn profileBtn add-btn-category">
-          My Profile
-        </button>
-        <button class="add-btn log">Logout</button>
-      </div>
+        <h1 class="logo">
+            BLOGGER
+        </h1>
+        <div class="btns">
+            <button class="add-btn add-btn-blog">add blog</button>
+          <button class="add-btn profileBtn add-btn-category">user profile </button></a>  
+        </div>
     </header>
     <div id="container" class="pop-up-container add-pop-up">
-      <i class="fa-solid fa-x close-add-icon"></i>
-      <h2>Blog Post</h2>
-      <p>Feel free to type anything</p>
-      <form>
-        <input
-          class="title"
-          type="text"
-          placeholder="Type post title"
-          required
-        />
-        <textarea
-          class="content"
-          cols="30"
-          rows="5"
-          placeholder="Type post content"
-          required
-        ></textarea>
-        <input class="image" type="text" placeholder="Add image" />
-        <div class="labels"></div>
-        <button class="add-post">Add</button>
-      </form>
+        <i class="fa-solid fa-x close-add-icon"></i>
+        <h2>Blog Post</h2>
+        <p>Feel free to type anything</p>
+        <form>
+            <input class="title" type="text" placeholder="Type post title" required>
+            <textarea class="content" cols="30" rows="5" placeholder="Type post content" required></textarea>
+            <input  class="image" type="text" placeholder="Add image" >
+            <div class="labels">
+            </div>
+            <button class="add-post">Add</button>
+        </form>
     </div>
     <section class="posts">
-      <div class="blog_post"></div>
+        <div class="blog_post">
+
+        </div>
     </section>
     <script src="js/Dom.js"></script>
     <script src="./js/posts.js"></script>
     <script src="./js/home.js"></script>
-  </body>
+</body>
+
 </html>
