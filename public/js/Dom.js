@@ -29,6 +29,12 @@ const handleDom = (element) => {
 
   const postText = document.createElement('p');
   postText.textContent = element.content;
+  userImgCon.appendChild(userImg);
+  post.appendChild(userImgCon);
+  conCopy.appendChild(userName);
+  conCopy.appendChild(postTime);
+  conCopy.appendChild(postTitle);
+  conCopy.appendChild(postText);
   if (element.image) {
     const postImg = document.createElement('img');
     postImg.id = 'post-img';
@@ -36,13 +42,6 @@ const handleDom = (element) => {
     postImg.alt = 'post image';
     conCopy.appendChild(postImg);
   }
-
-  userImgCon.appendChild(userImg);
-  post.appendChild(userImgCon);
-  conCopy.appendChild(userName);
-  conCopy.appendChild(postTime);
-  conCopy.appendChild(postTitle);
-  conCopy.appendChild(postText);
   post.appendChild(conCopy);
   postsContainer.appendChild(post);
   return conCopy;
