@@ -17,7 +17,10 @@ const signUpPost = () => {
       password2: password2.value,
     }),
   })
-    .then((res) => res.json())
+    .then((res) =>{
+      console.log(res, 'from then')
+      return res.json()
+    })
     .then((res) => {
       if (res.path) {
         window.location.href = res.path;
