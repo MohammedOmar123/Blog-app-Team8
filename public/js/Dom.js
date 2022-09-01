@@ -29,6 +29,8 @@ const handleDom = (element) => {
 
   const postTime = document.createElement('h3');
   postTime.textContent = element.datetime.split('T')[0];
+  postTime.className = 'postTime';
+
 
   const postTitle = document.createElement('h1');
   postTitle.textContent = element.title;
