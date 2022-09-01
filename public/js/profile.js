@@ -62,7 +62,7 @@ const fetchUserPosts = () => {
       window.location.href = res.massage;
     } else {
       postsContainer.textContent = '';
-      res.rows.forEach((element) => {
+      res.rows.reverse().forEach((element) => {
         const conCopy = handleDom(element);
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
@@ -83,9 +83,8 @@ homeBtn.addEventListener('click', () => {
 });
 
 addProfileImage.addEventListener('click', (e) => {
+  removeCategoryClasses()
   e.preventDefault();
-  addCategoryPopUp.classList.remove('show-container');
-
   const header = {
     method: 'POST',
     body: JSON.stringify({
@@ -98,8 +97,8 @@ addProfileImage.addEventListener('click', (e) => {
   fetch('/userImage', header).then(fetchUserPosts());
 });
 addPost.addEventListener('click', (e) => {
-  addPopUp.classList.remove('show-container');
- e.preventDefault(); const header = {
+  removeClasses();
+  e.preventDefault(); const header = {
     method: 'POST',
     body: JSON.stringify(
       { title: titleInput.value, content: contentTextarea.value, image: imageInput.value },
