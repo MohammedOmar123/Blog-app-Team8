@@ -1,4 +1,3 @@
-const postsContainer = document.querySelector('.posts');// this used in dom file
 const titleInput = document.querySelector('input.title');
 const contentTextarea = document.querySelector('textarea.content');
 const imageInput = document.querySelector('input.image');
@@ -62,7 +61,6 @@ const fetchUserPosts = () => {
     if (res.massage) {
       window.location.href = res.massage;
     } else {
-      console.log(res.rows);
       postsContainer.textContent = '';
       res.rows.forEach((element) => {
         const conCopy = handleDom(element);
@@ -86,6 +84,8 @@ homeBtn.addEventListener('click', () => {
 
 addProfileImage.addEventListener('click', (e) => {
   e.preventDefault();
+  addCategoryPopUp.classList.remove('show-container');
+
   const header = {
     method: 'POST',
     body: JSON.stringify({
@@ -96,4 +96,15 @@ addProfileImage.addEventListener('click', (e) => {
     },
   };
   fetch('/userImage', header).then(fetchUserPosts());
+});
+addPost.addEventListener('click', (e) => {
+  addPopUp.classList.remove('show-container'); 
+ e.preventDefault(); const header = {
+    method: 'POST',
+    body: JSON.stringify(
+      { title: titleInput.value, content: contentTextarea.value, image: imageInput.value },
+    ),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
+  }; fetch('/post', header)
+    .then((data) => data.json()).then(() => fetchUserPosts());
 });

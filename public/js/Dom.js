@@ -1,3 +1,4 @@
+const postsContainer = document.querySelector('.posts');// this used in dom file
 const handleDom = (element) => {
   const post = document.createElement('div');
   post.className = 'blog_post';
