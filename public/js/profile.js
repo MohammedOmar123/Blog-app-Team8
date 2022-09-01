@@ -4,7 +4,6 @@ const contentTextarea = document.querySelector('textarea.content');
 const imageInput = document.querySelector('input.image');
 const addPost = document.querySelector('button.add-post');
 const profileBtn = document.querySelector('.profileBtn');
-const logoutBtn = document.querySelector('.logout');
 const addBlogBtn = document.querySelector('.add-btn-blog');
 const addCategoryBtn = document.querySelector('.add-btn-category');
 const postsSection = document.querySelector('.posts');
@@ -58,7 +57,6 @@ const deletePost = (id) => fetch(`/userPosts/delete-post/${id}`, {
     'Content-Type': 'application/json',
   },
 });
-
 const fetchUserPosts = () => {
   fetch('/userPosts').then((res) => res.json()).then((res) => {
     if (res.massage) {
@@ -86,15 +84,6 @@ homeBtn.addEventListener('click', () => {
   window.location.href = 'home.html';
 });
 
-logoutBtn.addEventListener('click', () => {
-  fetch('/logout', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((res) => res.json()).then((res) => {
-    window.location.href = res.path;
-  }).catch(console.error);
 addProfileImage.addEventListener('click', (e) => {
   e.preventDefault();
   const header = {
