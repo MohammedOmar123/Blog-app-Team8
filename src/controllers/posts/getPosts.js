@@ -6,7 +6,7 @@ const getPosts = (req, res) => {
       console.log(posts.rows);
       res.json(posts.rows);
     })
-    .catch((err) => {
+    .catch(() => {
       res.status(500).json({ msg: 'server error' });
     });
 };
