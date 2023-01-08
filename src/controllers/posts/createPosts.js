@@ -1,4 +1,3 @@
-const { date } = require('joi');
 const { createPostQuery } = require('../../database/queries');
 
 const createPost = (req,res) => {

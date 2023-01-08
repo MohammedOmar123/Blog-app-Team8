@@ -1,9 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
-const joi = require('joi');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+
 
 const router = require('./routes');
 
